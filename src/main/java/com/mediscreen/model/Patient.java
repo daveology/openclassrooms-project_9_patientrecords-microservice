@@ -2,6 +2,7 @@ package com.mediscreen.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
@@ -29,7 +30,7 @@ public class Patient {
     @Column(name = "gender")
     private String gender;
 
-    @NotBlank(message = "Veuillez renseigner votre date de naissance.")
+    @NotNull(message = "Veuillez renseigner votre date de naissance.")
     @Column(name = "birth_date")
     private LocalDate birthDate;
 
