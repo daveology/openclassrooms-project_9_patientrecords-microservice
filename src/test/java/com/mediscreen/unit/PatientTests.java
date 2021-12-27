@@ -40,5 +40,12 @@ class PatientTests {
          */
         List<Patient> listResult = patientRepository.findAll();
         assertTrue(listResult.size() > 0);
+
+        /**
+         * Update
+         */
+        patient.setPhone("791-224-2487");
+        patient = patientRepository.save(patient);
+        assertEquals("791-224-2487", patient.getPhone());
     }
 }
