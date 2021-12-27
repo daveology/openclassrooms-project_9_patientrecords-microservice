@@ -35,7 +35,7 @@ class PatientTests {
         Patient retrievedPatient = patientRepository.save(patient);
         patient.setPatientId(retrievedPatient.getPatientId());
         assertEquals("Harry", retrievedPatient.getFirstName());
-        assertEquals("Potter", retrievedPatient.getLastName());
+        assertEquals("POTTER", retrievedPatient.getLastName());
         assertEquals("M", retrievedPatient.getGender());
         assertEquals(LocalDate.now().minusYears(12), retrievedPatient.getBirthDate());
         assertEquals("4, Privet Drive, Little Whinging", retrievedPatient.getAddress());
