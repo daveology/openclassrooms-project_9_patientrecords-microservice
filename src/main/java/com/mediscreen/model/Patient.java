@@ -98,4 +98,15 @@ public class Patient {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
+    public Patient(Long patientId, String firstName, String lastName, String gender,
+                   LocalDate birthDate, String address, String phone) {
+        this.patientId = patientId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gender = gender;
+        this.birthDate = birthDate;
+        this.address = address;
+        this.phone = phone;
+    }
 }
