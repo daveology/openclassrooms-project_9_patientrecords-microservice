@@ -5,6 +5,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
+import java.util.Objects;
 
 @Entity
 @Table(name = "patient")
@@ -110,5 +111,16 @@ public class Patient {
         this.birthDate = birthDate;
         this.address = address;
         this.phone = phone;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Patient patient = (Patient) o;
+        return Objects.equals(patientId, patient.patientId) && Objects.equals(firstName, patient.firstName)
+                && Objects.equals(lastName, patient.lastName) && Objects.equals(gender, patient.gender)
+                && Objects.equals(birthDate, patient.birthDate) && Objects.equals(address, patient.address)
+                && Objects.equals(phone, patient.phone);
     }
 }
