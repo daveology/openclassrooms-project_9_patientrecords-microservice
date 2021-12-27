@@ -34,5 +34,11 @@ class PatientTests {
          */
         patient = patientRepository.save(patient);
         assertEquals("Harry", patient.getFirstName());
+
+        /**
+         * Read
+         */
+        List<Patient> listResult = patientRepository.findAll();
+        assertTrue(listResult.size() > 0);
     }
 }
