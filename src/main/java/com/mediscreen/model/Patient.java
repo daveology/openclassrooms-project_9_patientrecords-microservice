@@ -3,6 +3,7 @@ package com.mediscreen.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "patient")
@@ -13,13 +14,32 @@ public class Patient {
     @Column(name = "patient_id")
     private Long patientId;
 
-    @NotBlank(message = "Username is mandatory")
+    @NotBlank(message = "Veuillez renseigner votre prénom.")
     @Size(max=100)
     @Column(name = "first_name")
     private String firstName;
 
-    @NotBlank(message = "Username is mandatory")
+    @NotBlank(message = "Veuillez renseigner votre nom de famille.")
     @Size(max=100)
     @Column(name = "last_name")
     private String lastName;
+
+    @NotBlank(message = "Veuillez renseigner votre sexe.")
+    @Size(max=1)
+    @Column(name = "gender")
+    private String gender;
+
+    @NotBlank(message = "Veuillez renseigner votre date de naissance.")
+    @Column(name = "birth_date")
+    private LocalDate birthDate;
+
+    @NotBlank(message = "Veuillez renseigner votre adresse postale.")
+    @Size(max=200)
+    @Column(name = "address")
+    private String address;
+
+    @NotBlank(message = "Veuillez renseigner votre numéro de téléphone.")
+    @Size(max=12)
+    @Column(name = "phone")
+    private String phone;
 }
