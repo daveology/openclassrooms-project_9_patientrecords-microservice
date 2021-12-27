@@ -23,7 +23,7 @@ class PatientTests {
 
         Patient patient = new Patient();
         patient.setFirstName("Harry");
-        patient.setLastName("Potter");
+        patient.setLastName("POTTER");
         patient.setGender("M");
         patient.setBirthDate(LocalDate.now().minusYears(12));
         patient.setAddress("4, Privet Drive, Little Whinging");
@@ -44,7 +44,7 @@ class PatientTests {
          * Read
          */
 
-        Patient newPatient = new Patient("Harry", "Potter", "M", LocalDate.now().minusYears(12),
+        Patient newPatient = new Patient("Harry", "POTTER", "M", LocalDate.now().minusYears(12),
                 "4, Privet Drive, Little Whinging", "791-112-3456");
         patientRepository.save(newPatient);
         List<Patient> listResult = patientRepository.findAll();
