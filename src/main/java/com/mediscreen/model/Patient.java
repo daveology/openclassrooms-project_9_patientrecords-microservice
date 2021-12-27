@@ -99,6 +99,8 @@ public class Patient {
         this.phone = phone;
     }
 
+    public Patient() {}
+
     public Patient(Long patientId, String firstName, String lastName, String gender,
                    LocalDate birthDate, String address, String phone) {
         this.patientId = patientId;
