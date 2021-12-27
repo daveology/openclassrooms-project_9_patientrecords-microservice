@@ -2,6 +2,7 @@ package com.mediscreen.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
@@ -10,7 +11,7 @@ import java.time.LocalDate;
 public class Patient {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name = "patient_id")
     private Long patientId;
 
@@ -29,7 +30,7 @@ public class Patient {
     @Column(name = "gender")
     private String gender;
 
-    @NotBlank(message = "Veuillez renseigner votre date de naissance.")
+    @NotNull(message = "Veuillez renseigner votre date de naissance.")
     @Column(name = "birth_date")
     private LocalDate birthDate;
 
@@ -101,9 +102,8 @@ public class Patient {
 
     public Patient() {}
 
-    public Patient(Long patientId, String firstName, String lastName, String gender,
+    public Patient(String firstName, String lastName, String gender,
                    LocalDate birthDate, String address, String phone) {
-        this.patientId = patientId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
