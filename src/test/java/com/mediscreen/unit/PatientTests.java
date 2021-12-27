@@ -32,12 +32,21 @@ class PatientTests {
         /**
          * Create
          */
-        patient = patientRepository.save(patient);
-        assertEquals("Harry", patient.getFirstName());
+        Patient retrievedPatient = patientRepository.save(patient);
+        patient.setPatientId(retrievedPatient.getPatientId());
+        assertEquals("Harry", retrievedPatient.getFirstName());
+        assertEquals("Potter", retrievedPatient.getLastName());
+        assertEquals("M", retrievedPatient.getGender());
+        assertEquals(LocalDate.now().minusYears(12), retrievedPatient.getBirthDate());
+        assertEquals("4, Privet Drive, Little Whinging", retrievedPatient.getAddress());
 
         /**
          * Read
          */
+
+        Patient newPatient = new Patient("Harry", "Potter", "M", LocalDate.now().minusYears(12),
+                "4, Privet Drive, Little Whinging", "791-112-3456");
+        patientRepository.save(newPatient);
         List<Patient> listResult = patientRepository.findAll();
         assertTrue(listResult.size() > 0);
 
@@ -51,9 +60,8 @@ class PatientTests {
         /**
          * Delete
          */
-        Long patientId = patient.getPatientId();
         patientRepository.delete(patient);
-        Optional<Patient> patientList = patientRepository.findById(patientId);
+        Optional<Patient> patientList = patientRepository.findById(patient.getPatientId());
         assertFalse(patientList.isPresent());
     }
 }

@@ -102,9 +102,8 @@ public class Patient {
 
     public Patient() {}
 
-    public Patient(Long patientId, String firstName, String lastName, String gender,
+    public Patient(String firstName, String lastName, String gender,
                    LocalDate birthDate, String address, String phone) {
-        this.patientId = patientId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
