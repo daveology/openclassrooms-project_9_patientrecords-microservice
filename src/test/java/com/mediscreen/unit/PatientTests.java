@@ -47,5 +47,13 @@ class PatientTests {
         patient.setPhone("791-224-2487");
         patient = patientRepository.save(patient);
         assertEquals("791-224-2487", patient.getPhone());
+
+        /**
+         * Delete
+         */
+        Long patientId = patient.getPatientId();
+        patientRepository.delete(patient);
+        Optional<Patient> patientList = patientRepository.findById(patientId);
+        assertFalse(patientList.isPresent());
     }
 }
