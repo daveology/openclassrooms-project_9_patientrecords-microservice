@@ -50,7 +50,7 @@ public class PatientCreationServiceTests {
         Patient thirdPatient = new Patient("Hermione", "GRANGER", "F", LocalDate.now().minusYears(12),
                 "8 Heathgate, Hampstead Garden Suburb, London", "791-963-4175");
         patientList.add(thirdPatient);
-        patientList = patientCreationService.createPatients(patientList);
+        patientList = patientCreationService.createPatientList(patientList);
         Collection<Patient> actualPatientList = patientRepository.findAll();
 
         assertTrue(patientList.size() == 3);

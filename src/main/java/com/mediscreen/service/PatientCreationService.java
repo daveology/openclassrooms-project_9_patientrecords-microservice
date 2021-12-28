@@ -18,7 +18,7 @@ public class PatientCreationService {
         return patientRepository.save(patient);
     }
 
-    public Collection<Patient> createPatients(Collection<Patient> patients) {
+    public Collection<Patient> createPatientList(Collection<Patient> patients) {
 
         return patientRepository.saveAll(patients);
     }
