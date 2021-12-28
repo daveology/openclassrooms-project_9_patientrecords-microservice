@@ -2,6 +2,7 @@ package com.mediscreen.unit.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mediscreen.model.Patient;
+import com.mediscreen.repository.PatientRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -25,6 +26,8 @@ public class PatientControllerTests {
     private MockMvc mockMvc;
     @Autowired
     private ObjectMapper objectMapper;
+    @Autowired
+    private PatientRepository patientRepository;
 
     @Test
     public void shouldCreatePatient() throws Exception {
@@ -63,7 +66,9 @@ public class PatientControllerTests {
     @Test
     public void shouldReadPatientById() throws Exception {
 
-        mockMvc.perform(get("/patient/1"))
+        Patient patient = patientRepository.save(new Patient("Harry", "POTTER", "M",
+                LocalDate.now().minusYears(12), "4, Privet Drive, Little Whinging", "791-112-3456"));
+        mockMvc.perform(get("/patient/" + patient.getPatientId()))
                 .andExpect(status().isOk());
     }
 
