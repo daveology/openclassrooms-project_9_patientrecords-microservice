@@ -15,16 +15,12 @@ public class PatientUpdateService {
 
     public Patient updatePatient(Patient patient) {
 
-        Patient updatedPatient;
-        Optional<Patient> optionalUser = patientRepository.findById(patient.getPatientId());
-
-        if (optionalUser.isPresent()) {
-            updatedPatient = optionalUser.get();
-            patientRepository.save(updatedPatient);
-        } else {
+        Optional<Patient> optionalPatient =
+                patientRepository.findById(patient.getPatientId());
+        if (!optionalPatient.isPresent()) {
             return new Patient();
         }
 
-        return updatedPatient;
+        return patientRepository.save(patient);
     }
 }
