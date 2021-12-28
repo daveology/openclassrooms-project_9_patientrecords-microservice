@@ -13,6 +13,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -57,5 +58,19 @@ public class PatientControllerTests {
                 .contentType("application/json")
                 .content(objectMapper.writeValueAsString(patientList))
         ).andExpect(status().isOk());
+    }
+
+    @Test
+    public void shouldReadPatientById() throws Exception {
+
+        mockMvc.perform(get("/patient/1"))
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    public void shouldReadPatientList() throws Exception {
+
+        mockMvc.perform(get("/patientList"))
+                .andExpect(status().isOk());
     }
 }
