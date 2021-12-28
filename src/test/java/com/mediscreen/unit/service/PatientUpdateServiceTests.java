@@ -31,4 +31,15 @@ public class PatientUpdateServiceTests {
 
         assertTrue(patient.equals(actualPatient));
     }
+
+    @Test
+    public void shouldReturnEmptyPatient() {
+
+        Patient patient = patientRepository.save(new Patient("Harry", "POTTER", "M", LocalDate.now().minusYears(12),
+                "4, Privet Drive, Little Whinging", "791-112-3456"));
+        patient.setPatientId(51611L);
+        Patient actualPatient = patientUpdateService.updatePatient(patient);
+
+        assertTrue(actualPatient.equals(new Patient()));
+    }
 }
