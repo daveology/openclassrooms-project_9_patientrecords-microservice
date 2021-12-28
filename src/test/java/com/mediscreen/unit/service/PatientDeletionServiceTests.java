@@ -29,4 +29,14 @@ public class PatientDeletionServiceTests {
 
         assertFalse(patientRepository.findById(patient.getPatientId()).isPresent());
     }
+
+    @Test
+    public void shouldDeletePatientList() {
+
+        Patient patient = patientRepository.save(new Patient("Harry", "POTTER", "M", LocalDate.now().minusYears(12),
+                "4, Privet Drive, Little Whinging", "791-112-3456"));
+        patientDeletionService.deletePatientList();
+
+        assertTrue(patientRepository.findAll().size() == 0);
+    }
 }
