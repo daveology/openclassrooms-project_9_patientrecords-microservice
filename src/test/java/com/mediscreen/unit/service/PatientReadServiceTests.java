@@ -1,6 +1,5 @@
 package com.mediscreen.unit.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.mediscreen.model.Patient;
 import com.mediscreen.repository.PatientRepository;
 import com.mediscreen.service.PatientReadService;
@@ -18,9 +17,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class PatientReadServiceTests {
 
     @Autowired
-    PatientReadService patientReadService;
+    private PatientReadService patientReadService;
     @Autowired
-    PatientRepository patientRepository;
+    private PatientRepository patientRepository;
 
     @Test
     public void shouldGetPatientById() {

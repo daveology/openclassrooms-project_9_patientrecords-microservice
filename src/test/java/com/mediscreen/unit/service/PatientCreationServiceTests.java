@@ -17,9 +17,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class PatientCreationServiceTests {
 
     @Autowired
-    PatientCreationService patientCreationService;
+    private PatientCreationService patientCreationService;
     @Autowired
-    PatientRepository patientRepository;
+    private PatientRepository patientRepository;
 
     @Test
     public void shouldCreatePatient() {

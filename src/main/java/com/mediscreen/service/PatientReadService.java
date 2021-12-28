@@ -19,11 +19,19 @@ public class PatientReadService {
 
     public Patient readPatientById(Long patientId) {
 
-        return patientRepository.getById(patientId);
+        logger.debug("[SERVICE] read Patient by ID=" + patientId);
+        Patient patient = patientRepository.getById(patientId);
+        logger.debug("[SERVICE] Patient " + "(ID " + patientId + ") result=" + patient);
+
+        return patient;
     }
 
     public Collection<Patient> readPatientList() {
 
-        return patientRepository.findAll();
+        logger.debug("[SERVICE] read PatientList");
+        Collection<Patient> patientList = patientRepository.findAll();
+        logger.debug("[SERVICE] PatientList result=" + patientList);
+
+        return patientList;
     }
 }
