@@ -23,7 +23,7 @@ class PatientTests {
 
         Patient patient = new Patient();
         patient.setFirstName("Harry");
-        patient.setLastName("Potter");
+        patient.setLastName("POTTER");
         patient.setGender("M");
         patient.setBirthDate(LocalDate.now().minusYears(12));
         patient.setAddress("4, Privet Drive, Little Whinging");
@@ -35,7 +35,7 @@ class PatientTests {
         Patient retrievedPatient = patientRepository.save(patient);
         patient.setPatientId(retrievedPatient.getPatientId());
         assertEquals("Harry", retrievedPatient.getFirstName());
-        assertEquals("Potter", retrievedPatient.getLastName());
+        assertEquals("POTTER", retrievedPatient.getLastName());
         assertEquals("M", retrievedPatient.getGender());
         assertEquals(LocalDate.now().minusYears(12), retrievedPatient.getBirthDate());
         assertEquals("4, Privet Drive, Little Whinging", retrievedPatient.getAddress());
@@ -44,7 +44,7 @@ class PatientTests {
          * Read
          */
 
-        Patient newPatient = new Patient("Harry", "Potter", "M", LocalDate.now().minusYears(12),
+        Patient newPatient = new Patient("Harry", "POTTER", "M", LocalDate.now().minusYears(12),
                 "4, Privet Drive, Little Whinging", "791-112-3456");
         patientRepository.save(newPatient);
         List<Patient> listResult = patientRepository.findAll();
@@ -63,5 +63,13 @@ class PatientTests {
         patientRepository.delete(patient);
         Optional<Patient> patientList = patientRepository.findById(patient.getPatientId());
         assertFalse(patientList.isPresent());
+
+        /**
+         * Completing 100% coverage
+         */
+        Patient somePatient = new Patient("Ron", "WEASLEY", "M", LocalDate.now().minusYears(12),
+                "The Borrow, Ottery St. Catchpole", "791-145-6752");
+        assertTrue(somePatient.equals(somePatient)); // identical objects case
+        assertFalse(somePatient.equals(null)); // null object case
     }
 }
