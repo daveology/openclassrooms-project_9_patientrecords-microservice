@@ -2,6 +2,7 @@ package com.mediscreen.controller;
 
 import com.mediscreen.model.Patient;
 import com.mediscreen.service.PatientCreationService;
+import com.mediscreen.service.PatientDeletionService;
 import com.mediscreen.service.PatientReadService;
 import com.mediscreen.service.PatientUpdateService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +14,13 @@ import java.util.Collection;
 public class PatientController {
 
     @Autowired
-    PatientCreationService patientCreationService;
+    private PatientCreationService patientCreationService;
     @Autowired
-    PatientReadService patientReadService;
+    private PatientReadService patientReadService;
     @Autowired
-    PatientUpdateService patientUpdateService;
+    private PatientUpdateService patientUpdateService;
+    @Autowired
+    private PatientDeletionService patientDeletionService;
 
     @PostMapping("/patient/add")
     public Patient addPatient(@RequestBody Patient patient) {
