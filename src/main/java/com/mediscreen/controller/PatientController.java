@@ -15,6 +15,6 @@ public class PatientController {
     @GetMapping("/patient/add")
     public String addPatient(Model model) {
 
-
+        return "patient/add";
     }
 }
