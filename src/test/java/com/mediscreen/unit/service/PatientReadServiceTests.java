@@ -4,6 +4,8 @@ import com.mediscreen.model.Patient;
 import com.mediscreen.repository.PatientRepository;
 import com.mediscreen.service.PatientReadService;
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -21,11 +23,14 @@ public class PatientReadServiceTests {
     @Autowired
     private PatientRepository patientRepository;
 
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
     @Test
     public void shouldGetPatientById() {
 
         Patient patient = patientRepository.save(new Patient("Harry", "POTTER", "M", LocalDate.now().minusYears(12),
                 "4, Privet Drive, Little Whinging", "791-112-3456"));
+        logger.debug("[TEST] read Patient by ID=" + patient.getPatientId());
         Patient actualPatient = patientReadService.readPatientById(patient.getPatientId());
 
         assertTrue(patient.equals(actualPatient));

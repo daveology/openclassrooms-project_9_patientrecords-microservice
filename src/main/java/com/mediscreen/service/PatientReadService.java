@@ -20,7 +20,7 @@ public class PatientReadService {
     public Patient readPatientById(Long patientId) {
 
         logger.debug("[SERVICE] read Patient by ID=" + patientId);
-        Patient patient = patientRepository.getById(patientId);
+        Patient patient = patientRepository.findById(patientId).get();
         logger.debug("[SERVICE] Patient " + "(ID " + patientId + ") result=" + patient);
 
         return patient;
