@@ -101,4 +101,10 @@ public class PatientControllerTests {
 
         mockMvc.perform(delete("/patient/" + patient.getPatientId())).andExpect(status().isOk());
     }
+
+    @Test
+    public void shouldDeletePatientList() throws Exception {
+
+        mockMvc.perform(delete("/patientList")).andExpect(status().isOk());
+    }
 }
