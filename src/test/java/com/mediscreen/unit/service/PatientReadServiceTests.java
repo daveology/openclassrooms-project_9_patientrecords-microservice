@@ -1,5 +1,6 @@
 package com.mediscreen.unit.service;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mediscreen.model.Patient;
 import com.mediscreen.repository.PatientRepository;
 import com.mediscreen.service.PatientReadService;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
 public class PatientReadServiceTests {
@@ -21,6 +23,9 @@ public class PatientReadServiceTests {
     @Autowired
     PatientRepository patientRepository;
 
+    @Autowired
+    private ObjectMapper objectMapper;
+
     @Test
     public void shouldGetPatientById() {
 
@@ -29,7 +34,7 @@ public class PatientReadServiceTests {
         Long patientId = patient.getPatientId();
         Patient actualPatient = patientReadService.readPatientById(patientId);
 
-        assertEquals(patient, actualPatient);
+        assertTrue(patient.equals(actualPatient));
     }
 
     @Test
