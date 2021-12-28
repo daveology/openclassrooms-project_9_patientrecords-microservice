@@ -63,5 +63,13 @@ class PatientTests {
         patientRepository.delete(patient);
         Optional<Patient> patientList = patientRepository.findById(patient.getPatientId());
         assertFalse(patientList.isPresent());
+
+        /**
+         * Completing 100% coverage
+         */
+        Patient somePatient = new Patient("Ron", "WEASLEY", "M", LocalDate.now().minusYears(12),
+                "The Borrow, Ottery St. Catchpole", "791-145-6752");
+        assertTrue(somePatient.equals(somePatient)); // identical objects case
+        assertFalse(somePatient.equals(null)); // null object case
     }
 }
