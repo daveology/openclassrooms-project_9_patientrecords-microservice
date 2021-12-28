@@ -16,4 +16,9 @@ public class PatientDeleteService {
             patientRepository.deleteById(patientId);
         }
     }
+
+    public void deletePatientList() {
+
+        patientRepository.deleteAll();
+    }
 }
