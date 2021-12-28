@@ -5,6 +5,8 @@ import com.mediscreen.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
+
 @Service
 public class PatientReadService {
 
@@ -14,5 +16,10 @@ public class PatientReadService {
     public Patient readPatientById(Long patientId) {
 
         return patientRepository.getById(patientId);
+    }
+
+    public Collection<Patient> readPatientList() {
+
+        return patientRepository.findAll();
     }
 }
