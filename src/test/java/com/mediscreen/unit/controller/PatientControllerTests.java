@@ -14,8 +14,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
@@ -80,14 +79,14 @@ public class PatientControllerTests {
     }
 
     @Test
-    public void shouldUpdateBidsList() throws Exception {
+    public void shouldUpdatePatient() throws Exception {
 
         Patient patient = patientRepository.save(new Patient("Harry", "POTTER", "M",
                 LocalDate.now().minusYears(12), "4, Privet Drive, Little Whinging", "791-112-3456"));
         patient.setFirstName("Dudley");
         patient.setLastName("DURSLEY");
 
-        mockMvc.perform(post("/patient/update")
+        mockMvc.perform(put("/patient/update")
                 .with(SecurityMockMvcRequestPostProcessors.csrf())
                 .contentType("application/json")
                 .content(objectMapper.writeValueAsString(patient))
