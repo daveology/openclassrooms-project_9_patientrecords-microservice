@@ -78,4 +78,19 @@ public class PatientControllerTests {
         mockMvc.perform(get("/patientList"))
                 .andExpect(status().isOk());
     }
+
+    @Test
+    public void shouldUpdateBidsList() throws Exception {
+
+        Patient patient = patientRepository.save(new Patient("Harry", "POTTER", "M",
+                LocalDate.now().minusYears(12), "4, Privet Drive, Little Whinging", "791-112-3456"));
+        patient.setFirstName("Dudley");
+        patient.setLastName("DURSLEY");
+
+        mockMvc.perform(post("/patient/update")
+                .with(SecurityMockMvcRequestPostProcessors.csrf())
+                .contentType("application/json")
+                .content(objectMapper.writeValueAsString(patient))
+                ).andExpect(status().isOk());
+    }
 }
