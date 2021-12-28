@@ -21,7 +21,7 @@ public class PatientUpdateServiceTests {
     private PatientRepository patientRepository;
 
     @Test
-    public void shouldUpdatePatient() throws JsonProcessingException {
+    public void shouldUpdatePatient() {
 
         Patient patient = patientRepository.save(new Patient("Harry", "POTTER", "M", LocalDate.now().minusYears(12),
                 "4, Privet Drive, Little Whinging", "791-112-3456"));
