@@ -92,4 +92,13 @@ public class PatientControllerTests {
                 .content(objectMapper.writeValueAsString(patient))
                 ).andExpect(status().isOk());
     }
+
+    @Test
+    public void shouldDeletePatient() throws Exception {
+
+        Patient patient = patientRepository.save(new Patient("Harry", "POTTER", "M",
+                LocalDate.now().minusYears(12), "4, Privet Drive, Little Whinging", "791-112-3456"));
+
+        mockMvc.perform(delete("/patient/" + patient.getPatientId())).andExpect(status().isOk());
+    }
 }
