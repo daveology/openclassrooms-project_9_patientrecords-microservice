@@ -9,4 +9,11 @@ public class PatientDeleteService {
 
     @Autowired
     private PatientRepository patientRepository;
+
+    public void deletePatientById(Long patientId) {
+
+        if(patientRepository.existsById(patientId)) {
+            patientRepository.deleteById(patientId);
+        }
+    }
 }
