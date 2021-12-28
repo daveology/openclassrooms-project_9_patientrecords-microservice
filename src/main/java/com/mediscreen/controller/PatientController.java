@@ -42,4 +42,10 @@ public class PatientController {
 
         return patientReadService.readPatientList();
     }
+
+    @PutMapping("/patient/update")
+    public Patient updatePatient(@RequestBody Patient patient) {
+
+        return patientUpdateService.updatePatient(patient);
+    }
 }
