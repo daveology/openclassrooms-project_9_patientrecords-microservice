@@ -29,13 +29,13 @@ public class PatientController {
     }
 
     @GetMapping("/patient/{id}")
-    public Patient readUserById(@PathVariable Long patientId) {
+    public Patient readPatientById(@PathVariable Long patientId) {
 
         return patientReadService.readPatientById(patientId);
     }
 
     @GetMapping("/patientList")
-    public Collection<Patient> readUsers() {
+    public Collection<Patient> readPatientList() {
 
         return patientReadService.readPatientList();
     }
