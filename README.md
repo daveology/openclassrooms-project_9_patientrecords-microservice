@@ -39,7 +39,7 @@
 <p id="introduction"></p>
 
 <div align="center">
-    <img src="src/main/resources/static/intro.png" alt="header" />
+    <img src="src/main/resources/static/intro.PNG" alt="header" />
 </div>
 
 <!-- ACKNOWLEDGEMENTS -->
