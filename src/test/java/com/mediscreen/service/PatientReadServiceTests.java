@@ -1,9 +1,11 @@
-package com.mediscreen.unit.service;
+package com.mediscreen.service;
 
 import com.mediscreen.model.Patient;
 import com.mediscreen.repository.PatientRepository;
-import com.mediscreen.service.PatientCreationService;
+import com.mediscreen.service.PatientReadService;
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -14,31 +16,28 @@ import java.util.Collection;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
-public class PatientCreationServiceTests {
+public class PatientReadServiceTests {
 
     @Autowired
-    private PatientCreationService patientCreationService;
+    private PatientReadService patientReadService;
     @Autowired
     private PatientRepository patientRepository;
 
-    @Test
-    public void shouldCreatePatient() {
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-        Patient patient = new Patient();
-        patient.setFirstName("Harry");
-        patient.setLastName("Potter");
-        patient.setGender("M");
-        patient.setBirthDate(LocalDate.now().minusYears(12));
-        patient.setAddress("4, Privet Drive, Little Whinging");
-        patient.setPhone("791-112-3456");
-        patient = patientCreationService.createPatient(patient);
-        Patient actualPatient = patientRepository.findById(patient.getPatientId()).get();
+    @Test
+    public void shouldGetPatientById() {
+
+        Patient patient = patientRepository.save(new Patient("Harry", "POTTER", "M", LocalDate.now().minusYears(12),
+                "4, Privet Drive, Little Whinging", "791-112-3456"));
+        logger.debug("[TEST] read Patient by ID=" + patient.getPatientId());
+        Patient actualPatient = patientReadService.readPatientById(patient.getPatientId());
 
         assertTrue(patient.equals(actualPatient));
     }
 
     @Test
-    public void shouldCreatePatients() {
+    public void shouldGetPatientList() {
 
         Collection<Patient> patientList = new ArrayList<>();
         Patient firstPatient = new Patient("Harry", "POTTER", "M", LocalDate.now().minusYears(12),
@@ -50,9 +49,8 @@ public class PatientCreationServiceTests {
         Patient thirdPatient = new Patient("Hermione", "GRANGER", "F", LocalDate.now().minusYears(12),
                 "8 Heathgate, Hampstead Garden Suburb, London", "791-963-4175");
         patientList.add(thirdPatient);
-        patientList = patientCreationService.createPatientList(patientList);
-        Collection<Patient> actualPatientList = patientRepository.findAll();
+        Collection<Patient> actualPatientList = patientReadService.readPatientList();
 
-        assertTrue(patientList.size() == 3);
+        assertTrue(actualPatientList.size() > 0);
     }
 }

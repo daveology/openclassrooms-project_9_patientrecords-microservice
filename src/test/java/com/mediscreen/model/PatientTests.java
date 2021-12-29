@@ -1,4 +1,4 @@
-package com.mediscreen.unit;
+package com.mediscreen.model;
 
 import com.mediscreen.model.Patient;
 import com.mediscreen.repository.PatientRepository;

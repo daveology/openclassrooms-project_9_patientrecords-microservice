@@ -10,15 +10,15 @@
         <a href="#summary"><strong>↓ Explore the docs ↓</strong></a>
         <br />
         <br />
-        <a href="https://github.com/s2680854/openclassrooms_9th-project_mediscreen/issues">Report Bug</a>
+        <a href="https://github.com/s2680854/openclassrooms_9th-project_patient-microservice/issues">Report Bug</a>
         ·
-        <a href="https://github.com/s2680854/openclassrooms_9th-project_mediscreen/issues">Report Feature</a>
+        <a href="https://github.com/s2680854/openclassrooms_9th-project_patient-microservice/issues">Report Feature</a>
         ·
         <a href="mailto:cordial.desk3307@fastmail.com">Contact Me</a>
     </p>
 </div>
 
-> # 🛈 For versioning details, please visite '[Releases](https://github.com/s2680854/openclassrooms_9th-project_mediscreen/releases)' tab.
+> # 🛈 For versioning details, please visite '[Releases](https://github.com/s2680854/openclassrooms_9th-project_patient-microservice/releases)' tab.
 >
 
 <!-- TABLE OF CONTENTS -->
@@ -52,5 +52,5 @@
 
 David - [Mail me here!](mailto:cordial.desk3307@fastmail.com)
 
-## 🔗 [» Project Link](https://github.com/s2680854/openclassrooms_9th-project_mediscreen)
+## 🔗 [» Project Link](https://github.com/s2680854/openclassrooms_9th-project_patient-microservice)
 <p id="project"></p>

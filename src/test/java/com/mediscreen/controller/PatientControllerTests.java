@@ -1,4 +1,4 @@
-package com.mediscreen.unit.controller;
+package com.mediscreen.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mediscreen.model.Patient;

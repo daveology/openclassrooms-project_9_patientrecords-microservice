@@ -1,4 +1,4 @@
-package com.mediscreen.unit.service;
+package com.mediscreen.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.mediscreen.model.Patient;
