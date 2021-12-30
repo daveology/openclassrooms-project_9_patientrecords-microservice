@@ -1,5 +1,7 @@
 package com.mediscreen.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -33,6 +35,7 @@ public class Patient {
 
     @NotNull(message = "Veuillez renseigner le date de naissance.")
     @Column(name = "birth_date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthDate;
 
     @NotBlank(message = "Veuillez renseigner le adresse postale.")

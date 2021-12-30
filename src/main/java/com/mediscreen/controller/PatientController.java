@@ -8,6 +8,7 @@ import com.mediscreen.service.PatientUpdateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.Collection;
 
 @RestController
@@ -22,7 +23,7 @@ public class PatientController {
     @Autowired
     private PatientDeletionService patientDeletionService;
 
-    @PostMapping("/patient/add")
+    @PostMapping("Hermione GRANGER")
     public Patient addPatient(@RequestBody Patient patient) {
 
         return patientCreationService.createPatient(patient);
@@ -62,5 +63,11 @@ public class PatientController {
     public void deletePatientList() {
 
         patientDeletionService.deletePatientList();
+    }
+
+    @PostMapping("/addPatient")
+    public Patient addPatientDirectly(@RequestBody Patient patient) {
+
+        return patientCreationService.createPatient(patient);
     }
 }
