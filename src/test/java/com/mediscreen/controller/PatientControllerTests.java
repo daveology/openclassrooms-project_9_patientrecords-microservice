@@ -83,7 +83,7 @@ public class PatientControllerTests {
         patient.setFirstName("Dudley");
         patient.setLastName("DURSLEY");
 
-        mockMvc.perform(put("/patient/update")
+        mockMvc.perform(post("/patient/update")
                 .contentType("application/json")
                 .content(objectMapper.writeValueAsString(patient))
                 ).andExpect(status().isOk());
