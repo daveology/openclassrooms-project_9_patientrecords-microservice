@@ -24,6 +24,7 @@ public class PatientCreationServiceTests {
     public void shouldCreatePatient() {
 
         Patient patient = new Patient();
+        patient.setRiskLevel("None");
         patient.setFullName("Harry POTTER");
         patient.setGender("M");
         patient.setBirthDate(LocalDate.now().minusYears(12));
@@ -39,13 +40,13 @@ public class PatientCreationServiceTests {
     public void shouldCreatePatients() {
 
         Collection<Patient> patientList = new ArrayList<>();
-        Patient firstPatient = new Patient("Harry POTTER", "M", LocalDate.now().minusYears(12),
+        Patient firstPatient = new Patient("None", "Harry POTTER", "M", LocalDate.now().minusYears(12),
                 "4, Privet Drive, Little Whinging", "791-112-3456");
         patientList.add(firstPatient);
-        Patient secondPatient = new Patient("Ron WEASLEY", "M", LocalDate.now().minusYears(12),
+        Patient secondPatient = new Patient("None", "Ron WEASLEY", "M", LocalDate.now().minusYears(12),
                 "The Borrow, Ottery St. Catchpole", "791-145-6752");
         patientList.add(secondPatient);
-        Patient thirdPatient = new Patient("Hermione GRANGER", "F", LocalDate.now().minusYears(12),
+        Patient thirdPatient = new Patient("None", "Hermione GRANGER", "F", LocalDate.now().minusYears(12),
                 "8 Heathgate, Hampstead Garden Suburb, London", "791-963-4175");
         patientList.add(thirdPatient);
         patientList = patientCreationService.createPatientList(patientList);

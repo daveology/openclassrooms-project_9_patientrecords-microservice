@@ -21,6 +21,7 @@ class PatientTests {
     public void patientTest() {
 
         Patient patient = new Patient();
+        patient.setRiskLevel("None");
         patient.setFullName("Harry POTTER");
         patient.setGender("M");
         patient.setBirthDate(LocalDate.now().minusYears(12));
@@ -41,7 +42,7 @@ class PatientTests {
          * Read
          */
 
-        Patient newPatient = new Patient("Harry POTTER", "M", LocalDate.now().minusYears(12),
+        Patient newPatient = new Patient("None", "Harry POTTER", "M", LocalDate.now().minusYears(12),
                 "4, Privet Drive, Little Whinging", "791-112-3456");
         patientRepository.save(newPatient);
         List<Patient> listResult = patientRepository.findAll();
@@ -64,7 +65,7 @@ class PatientTests {
         /**
          * Completing 100% coverage
          */
-        Patient somePatient = new Patient("Ron WEASLEY", "M", LocalDate.now().minusYears(12),
+        Patient somePatient = new Patient("None", "Ron WEASLEY", "M", LocalDate.now().minusYears(12),
                 "The Borrow, Ottery St. Catchpole", "791-145-6752");
         assertTrue(somePatient.equals(somePatient)); // identical objects case
         assertFalse(somePatient.equals(null)); // null object case

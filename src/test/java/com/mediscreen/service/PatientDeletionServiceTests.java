@@ -23,7 +23,7 @@ public class PatientDeletionServiceTests {
     @Test
     public void shouldDeletePatient() {
 
-        Patient patient = patientRepository.save(new Patient("Harry POTTER", "M", LocalDate.now().minusYears(12),
+        Patient patient = patientRepository.save(new Patient("None", "Harry POTTER", "M", LocalDate.now().minusYears(12),
                 "4, Privet Drive, Little Whinging", "791-112-3456"));
         patientDeletionService.deletePatientById(patient.getPatientId());
 
@@ -33,7 +33,7 @@ public class PatientDeletionServiceTests {
     @Test
     public void shouldDeletePatientList() {
 
-        Patient patient = patientRepository.save(new Patient("Harry POTTER", "M", LocalDate.now().minusYears(12),
+        Patient patient = patientRepository.save(new Patient("None", "Harry POTTER", "M", LocalDate.now().minusYears(12),
                 "4, Privet Drive, Little Whinging", "791-112-3456"));
         patientDeletionService.deletePatientList();
 

@@ -21,7 +21,7 @@ public class PatientUpdateServiceTests {
     @Test
     public void shouldUpdatePatient() {
 
-        Patient patient = patientRepository.save(new Patient("Harry POTTER", "M", LocalDate.now().minusYears(12),
+        Patient patient = patientRepository.save(new Patient("None", "Harry POTTER", "M", LocalDate.now().minusYears(12),
                 "4, Privet Drive, Little Whinging", "791-112-3456"));
         patient.setFullName("Dudley DURSLEY");
         Patient actualPatient = patientUpdateService.updatePatient(patient);
@@ -32,7 +32,7 @@ public class PatientUpdateServiceTests {
     @Test
     public void shouldReturnEmptyPatient() {
 
-        Patient patient = patientRepository.save(new Patient("Harry POTTER", "M", LocalDate.now().minusYears(12),
+        Patient patient = patientRepository.save(new Patient("None", "Harry POTTER", "M", LocalDate.now().minusYears(12),
                 "4, Privet Drive, Little Whinging", "791-112-3456"));
         patient.setPatientId(51611L);
         Patient actualPatient = patientUpdateService.updatePatient(patient);

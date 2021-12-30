@@ -16,26 +16,31 @@ public class Patient {
     @Column(name = "patient_id")
     private Long patientId;
 
-    @NotBlank(message = "Veuillez renseigner votre nom complet.")
+    @NotBlank(message = "Veuillez renseigner le niveau de risque.")
+    @Size(max=100)
+    @Column(name = "risk_level")
+    private String riskLevel;
+
+    @NotBlank(message = "Veuillez renseigner le nom complet.")
     @Size(max=100)
     @Column(name = "full_name")
     private String fullName;
 
-    @NotBlank(message = "Veuillez renseigner votre sexe.")
+    @NotBlank(message = "Veuillez renseigner le sexe.")
     @Size(max=1)
     @Column(name = "gender")
     private String gender;
 
-    @NotNull(message = "Veuillez renseigner votre date de naissance.")
+    @NotNull(message = "Veuillez renseigner le date de naissance.")
     @Column(name = "birth_date")
     private LocalDate birthDate;
 
-    @NotBlank(message = "Veuillez renseigner votre adresse postale.")
+    @NotBlank(message = "Veuillez renseigner le adresse postale.")
     @Size(max=200)
     @Column(name = "address")
     private String address;
 
-    @NotBlank(message = "Veuillez renseigner votre numéro de téléphone.")
+    @NotBlank(message = "Veuillez renseigner le numéro de téléphone.")
     @Size(max=12)
     @Column(name = "phone")
     private String phone;
@@ -47,6 +52,10 @@ public class Patient {
     public void setPatientId(Long patientId) {
         this.patientId = patientId;
     }
+
+    public String getRiskLevel() { return riskLevel; }
+
+    public void setRiskLevel(String riskLevel) { this.riskLevel = riskLevel; }
 
     public String getFullName() {
         return fullName;
@@ -90,8 +99,9 @@ public class Patient {
 
     public Patient() {}
 
-    public Patient(String fullName, String gender,
+    public Patient(String riskLevel, String fullName, String gender,
                    LocalDate birthDate, String address, String phone) {
+        this.riskLevel = riskLevel;
         this.fullName = fullName;
         this.gender = gender;
         this.birthDate = birthDate;
@@ -104,8 +114,9 @@ public class Patient {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Patient patient = (Patient) o;
-        return Objects.equals(patientId, patient.patientId) && Objects.equals(fullName, patient.fullName)
-                && Objects.equals(gender, patient.gender)&& Objects.equals(birthDate, patient.birthDate)
-                && Objects.equals(address, patient.address) && Objects.equals(phone, patient.phone);
+        return Objects.equals(patientId, patient.patientId) && Objects.equals(riskLevel, patient.riskLevel)
+                && Objects.equals(fullName, patient.fullName) && Objects.equals(gender, patient.gender)
+                && Objects.equals(birthDate, patient.birthDate) && Objects.equals(address, patient.address)
+                && Objects.equals(phone, patient.phone);
     }
 }
