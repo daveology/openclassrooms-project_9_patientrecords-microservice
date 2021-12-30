@@ -28,7 +28,7 @@ public class PatientReadServiceTests {
     @Test
     public void shouldGetPatientById() {
 
-        Patient patient = patientRepository.save(new Patient("Harry", "POTTER", "M", LocalDate.now().minusYears(12),
+        Patient patient = patientRepository.save(new Patient("Harry POTTER", "M", LocalDate.now().minusYears(12),
                 "4, Privet Drive, Little Whinging", "791-112-3456"));
         logger.debug("[TEST] read Patient by ID=" + patient.getPatientId());
         Patient actualPatient = patientReadService.readPatientById(patient.getPatientId());
@@ -40,13 +40,13 @@ public class PatientReadServiceTests {
     public void shouldGetPatientList() {
 
         Collection<Patient> patientList = new ArrayList<>();
-        Patient firstPatient = new Patient("Harry", "POTTER", "M", LocalDate.now().minusYears(12),
+        Patient firstPatient = new Patient("Harry POTTER", "M", LocalDate.now().minusYears(12),
                 "4, Privet Drive, Little Whinging", "791-112-3456");
         patientList.add(firstPatient);
-        Patient secondPatient = new Patient("Ron", "WEASLEY", "M", LocalDate.now().minusYears(12),
+        Patient secondPatient = new Patient("Ron WEASLEY", "M", LocalDate.now().minusYears(12),
                 "The Borrow, Ottery St. Catchpole", "791-145-6752");
         patientList.add(secondPatient);
-        Patient thirdPatient = new Patient("Hermione", "GRANGER", "F", LocalDate.now().minusYears(12),
+        Patient thirdPatient = new Patient("Hermione GRANGER", "F", LocalDate.now().minusYears(12),
                 "8 Heathgate, Hampstead Garden Suburb, London", "791-963-4175");
         patientList.add(thirdPatient);
         Collection<Patient> actualPatientList = patientReadService.readPatientList();

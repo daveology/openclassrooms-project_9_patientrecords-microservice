@@ -16,15 +16,10 @@ public class Patient {
     @Column(name = "patient_id")
     private Long patientId;
 
-    @NotBlank(message = "Veuillez renseigner votre prénom.")
+    @NotBlank(message = "Veuillez renseigner votre nom complet.")
     @Size(max=100)
-    @Column(name = "first_name")
-    private String firstName;
-
-    @NotBlank(message = "Veuillez renseigner votre nom de famille.")
-    @Size(max=100)
-    @Column(name = "last_name")
-    private String lastName;
+    @Column(name = "full_name")
+    private String fullName;
 
     @NotBlank(message = "Veuillez renseigner votre sexe.")
     @Size(max=1)
@@ -53,20 +48,12 @@ public class Patient {
         this.patientId = patientId;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setFullName(String firstName) {
+        this.fullName = firstName;
     }
 
     public String getGender() {
@@ -103,10 +90,9 @@ public class Patient {
 
     public Patient() {}
 
-    public Patient(String firstName, String lastName, String gender,
+    public Patient(String fullName, String gender,
                    LocalDate birthDate, String address, String phone) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.fullName = fullName;
         this.gender = gender;
         this.birthDate = birthDate;
         this.address = address;
@@ -118,9 +104,8 @@ public class Patient {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Patient patient = (Patient) o;
-        return Objects.equals(patientId, patient.patientId) && Objects.equals(firstName, patient.firstName)
-                && Objects.equals(lastName, patient.lastName) && Objects.equals(gender, patient.gender)
-                && Objects.equals(birthDate, patient.birthDate) && Objects.equals(address, patient.address)
-                && Objects.equals(phone, patient.phone);
+        return Objects.equals(patientId, patient.patientId) && Objects.equals(fullName, patient.fullName)
+                && Objects.equals(gender, patient.gender)&& Objects.equals(birthDate, patient.birthDate)
+                && Objects.equals(address, patient.address) && Objects.equals(phone, patient.phone);
     }
 }

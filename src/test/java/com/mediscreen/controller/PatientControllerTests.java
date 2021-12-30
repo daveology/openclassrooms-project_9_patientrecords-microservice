@@ -30,7 +30,7 @@ public class PatientControllerTests {
     @Test
     public void shouldCreatePatient() throws Exception {
 
-        Patient patient = new Patient("Harry", "POTTER", "M", LocalDate.now().minusYears(12),
+        Patient patient = new Patient("Harry POTTER", "M", LocalDate.now().minusYears(12),
                 "4, Privet Drive, Little Whinging", "791-112-3456");
 
         mockMvc.perform(post("/patient/add")
@@ -43,13 +43,13 @@ public class PatientControllerTests {
     public void shouldCreatePatientList() throws Exception {
 
         Collection<Patient> patientList = new ArrayList<>();
-        Patient firstPatient = new Patient("Harry", "POTTER", "M", LocalDate.now().minusYears(12),
+        Patient firstPatient = new Patient("Harry POTTER", "M", LocalDate.now().minusYears(12),
                 "4, Privet Drive, Little Whinging", "791-112-3456");
         patientList.add(firstPatient);
-        Patient secondPatient = new Patient("Ron", "WEASLEY", "M", LocalDate.now().minusYears(12),
+        Patient secondPatient = new Patient("Ron WEASLEY", "M", LocalDate.now().minusYears(12),
                 "The Borrow, Ottery St. Catchpole", "791-145-6752");
         patientList.add(secondPatient);
-        Patient thirdPatient = new Patient("Hermione", "GRANGER", "F", LocalDate.now().minusYears(12),
+        Patient thirdPatient = new Patient("Hermione GRANGER", "F", LocalDate.now().minusYears(12),
                 "8 Heathgate, Hampstead Garden Suburb, London", "791-963-4175");
         patientList.add(thirdPatient);
 
@@ -62,7 +62,7 @@ public class PatientControllerTests {
     @Test
     public void shouldReadPatientById() throws Exception {
 
-        Patient patient = patientRepository.save(new Patient("Harry", "POTTER", "M",
+        Patient patient = patientRepository.save(new Patient("Harry POTTER", "M",
                 LocalDate.now().minusYears(12), "4, Privet Drive, Little Whinging", "791-112-3456"));
         mockMvc.perform(get("/patient/" + patient.getPatientId()))
                 .andExpect(status().isOk());
@@ -78,10 +78,9 @@ public class PatientControllerTests {
     @Test
     public void shouldUpdatePatient() throws Exception {
 
-        Patient patient = patientRepository.save(new Patient("Harry", "POTTER", "M",
+        Patient patient = patientRepository.save(new Patient("Harry POTTER", "M",
                 LocalDate.now().minusYears(12), "4, Privet Drive, Little Whinging", "791-112-3456"));
-        patient.setFirstName("Dudley");
-        patient.setLastName("DURSLEY");
+        patient.setFullName("Dudley DURSLEY");
 
         mockMvc.perform(post("/patient/update")
                 .contentType("application/json")
@@ -92,7 +91,7 @@ public class PatientControllerTests {
     @Test
     public void shouldDeletePatient() throws Exception {
 
-        Patient patient = patientRepository.save(new Patient("Harry", "POTTER", "M",
+        Patient patient = patientRepository.save(new Patient("Harry POTTER", "M",
                 LocalDate.now().minusYears(12), "4, Privet Drive, Little Whinging", "791-112-3456"));
 
         mockMvc.perform(delete("/patient/" + patient.getPatientId())).andExpect(status().isOk());
