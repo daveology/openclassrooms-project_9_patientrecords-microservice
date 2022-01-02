@@ -23,7 +23,7 @@ public class PatientController {
     @Autowired
     private PatientDeletionService patientDeletionService;
 
-    @PostMapping("Hermione GRANGER")
+    @PostMapping("/patient/add")
     public Patient addPatient(@RequestBody Patient patient) {
 
         return patientCreationService.createPatient(patient);
@@ -39,6 +39,12 @@ public class PatientController {
     public Patient readPatientById(@PathVariable Long patientId) {
 
         return patientReadService.readPatientById(patientId);
+    }
+
+    @GetMapping("/getPatientByName/{fullName}")
+    public Patient readPatientByName(@PathVariable String fullName) {
+
+        return patientReadService.readPatientByName(fullName);
     }
 
     @GetMapping("/patientList")

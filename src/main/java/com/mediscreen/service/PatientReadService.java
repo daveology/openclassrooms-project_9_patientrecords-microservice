@@ -26,6 +26,15 @@ public class PatientReadService {
         return patient;
     }
 
+    public Patient readPatientByName(String fullName) {
+
+        logger.debug("[SERVICE] read Patient by ID=" + fullName);
+        Patient patient = patientRepository.findFirstByFullName(fullName);
+        logger.debug("[SERVICE] Patient " + "(ID " + fullName + ") result=" + patient);
+
+        return patient;
+    }
+
     public Collection<Patient> readPatientList() {
 
         logger.debug("[SERVICE] read PatientList");
