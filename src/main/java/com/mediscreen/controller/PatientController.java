@@ -8,6 +8,7 @@ import com.mediscreen.service.PatientUpdateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.Collection;
 
 @RestController
@@ -40,13 +41,19 @@ public class PatientController {
         return patientReadService.readPatientById(patientId);
     }
 
+    @GetMapping("/getPatientByName/{fullName}")
+    public Patient readPatientByName(@PathVariable String fullName) {
+
+        return patientReadService.readPatientByName(fullName);
+    }
+
     @GetMapping("/patientList")
     public Collection<Patient> readPatientList() {
 
         return patientReadService.readPatientList();
     }
 
-    @PutMapping("/patient/update")
+    @PostMapping("/patient/update")
     public Patient updatePatient(@RequestBody Patient patient) {
 
         return patientUpdateService.updatePatient(patient);
@@ -62,5 +69,11 @@ public class PatientController {
     public void deletePatientList() {
 
         patientDeletionService.deletePatientList();
+    }
+
+    @PostMapping("/addPatient")
+    public Patient addPatientDirectly(@RequestBody Patient patient) {
+
+        return patientCreationService.createPatient(patient);
     }
 }

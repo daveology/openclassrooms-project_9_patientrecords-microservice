@@ -1,9 +1,7 @@
 package com.mediscreen.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.mediscreen.model.Patient;
 import com.mediscreen.repository.PatientRepository;
-import com.mediscreen.service.PatientUpdateService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -23,10 +21,9 @@ public class PatientUpdateServiceTests {
     @Test
     public void shouldUpdatePatient() {
 
-        Patient patient = patientRepository.save(new Patient("Harry", "POTTER", "M", LocalDate.now().minusYears(12),
+        Patient patient = patientRepository.save(new Patient("None", "Harry POTTER", "M", LocalDate.now().minusYears(12),
                 "4, Privet Drive, Little Whinging", "791-112-3456"));
-        patient.setFirstName("Dudley");
-        patient.setLastName("DURSLEY");
+        patient.setFullName("Dudley DURSLEY");
         Patient actualPatient = patientUpdateService.updatePatient(patient);
 
         assertTrue(patient.equals(actualPatient));
@@ -35,7 +32,7 @@ public class PatientUpdateServiceTests {
     @Test
     public void shouldReturnEmptyPatient() {
 
-        Patient patient = patientRepository.save(new Patient("Harry", "POTTER", "M", LocalDate.now().minusYears(12),
+        Patient patient = patientRepository.save(new Patient("None", "Harry POTTER", "M", LocalDate.now().minusYears(12),
                 "4, Privet Drive, Little Whinging", "791-112-3456"));
         patient.setPatientId(51611L);
         Patient actualPatient = patientUpdateService.updatePatient(patient);
