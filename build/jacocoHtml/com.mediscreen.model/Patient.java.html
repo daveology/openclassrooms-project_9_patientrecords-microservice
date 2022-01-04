@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Patient.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">openclassrooms_9th-project_patient-microservice</a> &gt; <a href="index.source.html" class="el_package">com.mediscreen.model</a> &gt; <span class="el_source">Patient.java</span></div><h1>Patient.java</h1><pre class="source lang-java linenums">package com.mediscreen.model;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.time.LocalDate;
+import java.util.Objects;
+
+@Entity
+@Table(name = &quot;patient&quot;)
+public class Patient {
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name = &quot;patient_id&quot;)
+    private Long patientId;
+
+    @NotBlank(message = &quot;Veuillez renseigner le niveau de risque.&quot;)
+    @Size(max=100)
+    @Column(name = &quot;risk_level&quot;)
+    private String riskLevel;
+
+    @NotBlank(message = &quot;Veuillez renseigner le nom complet.&quot;)
+    @Size(max=100)
+    @Column(name = &quot;full_name&quot;)
+    private String fullName;
+
+    @NotBlank(message = &quot;Veuillez renseigner le sexe.&quot;)
+    @Size(max=1)
+    @Column(name = &quot;gender&quot;)
+    private String gender;
+
+    @NotNull(message = &quot;Veuillez renseigner le date de naissance.&quot;)
+    @Column(name = &quot;birth_date&quot;)
+    @DateTimeFormat(pattern = &quot;yyyy-MM-dd&quot;)
+    private LocalDate birthDate;
+
+    @NotBlank(message = &quot;Veuillez renseigner le adresse postale.&quot;)
+    @Size(max=200)
+    @Column(name = &quot;address&quot;)
+    private String address;
+
+    @NotBlank(message = &quot;Veuillez renseigner le numÃ©ro de tÃ©lÃ©phone.&quot;)
+    @Size(max=12)
+    @Column(name = &quot;phone&quot;)
+    private String phone;
+
+    public Long getPatientId() {
+<span class="nc" id="L52">        return patientId;</span>
+    }
+
+    public void setPatientId(Long patientId) {
+<span class="nc" id="L56">        this.patientId = patientId;</span>
+<span class="nc" id="L57">    }</span>
+
+<span class="nc" id="L59">    public String getRiskLevel() { return riskLevel; }</span>
+
+<span class="nc" id="L61">    public void setRiskLevel(String riskLevel) { this.riskLevel = riskLevel; }</span>
+
+    public String getFullName() {
+<span class="nc" id="L64">        return fullName;</span>
+    }
+
+    public void setFullName(String firstName) {
+<span class="nc" id="L68">        this.fullName = firstName;</span>
+<span class="nc" id="L69">    }</span>
+
+    public String getGender() {
+<span class="nc" id="L72">        return gender;</span>
+    }
+
+    public void setGender(String gender) {
+<span class="nc" id="L76">        this.gender = gender;</span>
+<span class="nc" id="L77">    }</span>
+
+    public LocalDate getBirthDate() {
+<span class="nc" id="L80">        return birthDate;</span>
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+<span class="nc" id="L84">        this.birthDate = birthDate;</span>
+<span class="nc" id="L85">    }</span>
+
+    public String getAddress() {
+<span class="nc" id="L88">        return address;</span>
+    }
+
+    public void setAddress(String address) {
+<span class="nc" id="L92">        this.address = address;</span>
+<span class="nc" id="L93">    }</span>
+
+    public String getPhone() {
+<span class="nc" id="L96">        return phone;</span>
+    }
+
+    public void setPhone(String phone) {
+<span class="nc" id="L100">        this.phone = phone;</span>
+<span class="nc" id="L101">    }</span>
+
+<span class="nc" id="L103">    public Patient() {}</span>
+
+    public Patient(String riskLevel, String fullName, String gender,
+<span class="nc" id="L106">                   LocalDate birthDate, String address, String phone) {</span>
+<span class="nc" id="L107">        this.riskLevel = riskLevel;</span>
+<span class="nc" id="L108">        this.fullName = fullName;</span>
+<span class="nc" id="L109">        this.gender = gender;</span>
+<span class="nc" id="L110">        this.birthDate = birthDate;</span>
+<span class="nc" id="L111">        this.address = address;</span>
+<span class="nc" id="L112">        this.phone = phone;</span>
+<span class="nc" id="L113">    }</span>
+
+    @Override
+    public boolean equals(Object o) {
+<span class="nc bnc" id="L117" title="All 2 branches missed.">        if (this == o) return true;</span>
+<span class="nc bnc" id="L118" title="All 4 branches missed.">        if (o == null || getClass() != o.getClass()) return false;</span>
+<span class="nc" id="L119">        Patient patient = (Patient) o;</span>
+<span class="nc bnc" id="L120" title="All 4 branches missed.">        return Objects.equals(patientId, patient.patientId) &amp;&amp; Objects.equals(riskLevel, patient.riskLevel)</span>
+<span class="nc bnc" id="L121" title="All 4 branches missed.">                &amp;&amp; Objects.equals(fullName, patient.fullName) &amp;&amp; Objects.equals(gender, patient.gender)</span>
+<span class="nc bnc" id="L122" title="All 4 branches missed.">                &amp;&amp; Objects.equals(birthDate, patient.birthDate) &amp;&amp; Objects.equals(address, patient.address)</span>
+<span class="nc bnc" id="L123" title="All 2 branches missed.">                &amp;&amp; Objects.equals(phone, patient.phone);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

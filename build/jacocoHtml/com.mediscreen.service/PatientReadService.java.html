@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PatientReadService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">openclassrooms_9th-project_patient-microservice</a> &gt; <a href="index.source.html" class="el_package">com.mediscreen.service</a> &gt; <span class="el_source">PatientReadService.java</span></div><h1>PatientReadService.java</h1><pre class="source lang-java linenums">package com.mediscreen.service;
+
+import com.mediscreen.model.Patient;
+import com.mediscreen.repository.PatientRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.Collection;
+
+@Service
+<span class="nc" id="L13">public class PatientReadService {</span>
+
+<span class="nc" id="L15">    private final Logger logger = LoggerFactory.getLogger(this.getClass());</span>
+
+    @Autowired
+    private PatientRepository patientRepository;
+
+    public Patient readPatientById(Long patientId) {
+
+<span class="nc" id="L22">        logger.debug(&quot;[SERVICE] read Patient by ID=&quot; + patientId);</span>
+<span class="nc" id="L23">        Patient patient = patientRepository.findById(patientId).get();</span>
+<span class="nc" id="L24">        logger.debug(&quot;[SERVICE] Patient &quot; + &quot;(ID &quot; + patientId + &quot;) result=&quot; + patient);</span>
+
+<span class="nc" id="L26">        return patient;</span>
+    }
+
+    public Patient readPatientByName(String fullName) {
+
+<span class="nc" id="L31">        logger.debug(&quot;[SERVICE] read Patient by ID=&quot; + fullName);</span>
+<span class="nc" id="L32">        Patient patient = patientRepository.findFirstByFullName(fullName);</span>
+<span class="nc" id="L33">        logger.debug(&quot;[SERVICE] Patient &quot; + &quot;(ID &quot; + fullName + &quot;) result=&quot; + patient);</span>
+
+<span class="nc" id="L35">        return patient;</span>
+    }
+
+    public Collection&lt;Patient&gt; readPatientList() {
+
+<span class="nc" id="L40">        logger.debug(&quot;[SERVICE] read PatientList&quot;);</span>
+<span class="nc" id="L41">        Collection&lt;Patient&gt; patientList = patientRepository.findAll();</span>
+<span class="nc" id="L42">        logger.debug(&quot;[SERVICE] PatientList result=&quot; + patientList);</span>
+
+<span class="nc" id="L44">        return patientList;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
