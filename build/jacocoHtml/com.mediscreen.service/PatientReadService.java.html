@@ -10,20 +10,20 @@ import org.springframework.stereotype.Service;
 import java.util.Collection;
 
 @Service
-<span class="nc" id="L13">public class PatientReadService {</span>
+<span class="fc" id="L13">public class PatientReadService {</span>
 
-<span class="nc" id="L15">    private final Logger logger = LoggerFactory.getLogger(this.getClass());</span>
+<span class="fc" id="L15">    private final Logger logger = LoggerFactory.getLogger(this.getClass());</span>
 
     @Autowired
     private PatientRepository patientRepository;
 
     public Patient readPatientById(Long patientId) {
 
-<span class="nc" id="L22">        logger.debug(&quot;[SERVICE] read Patient by ID=&quot; + patientId);</span>
-<span class="nc" id="L23">        Patient patient = patientRepository.findById(patientId).get();</span>
-<span class="nc" id="L24">        logger.debug(&quot;[SERVICE] Patient &quot; + &quot;(ID &quot; + patientId + &quot;) result=&quot; + patient);</span>
+<span class="fc" id="L22">        logger.debug(&quot;[SERVICE] read Patient by ID=&quot; + patientId);</span>
+<span class="fc" id="L23">        Patient patient = patientRepository.findById(patientId).get();</span>
+<span class="fc" id="L24">        logger.debug(&quot;[SERVICE] Patient &quot; + &quot;(ID &quot; + patientId + &quot;) result=&quot; + patient);</span>
 
-<span class="nc" id="L26">        return patient;</span>
+<span class="fc" id="L26">        return patient;</span>
     }
 
     public Patient readPatientByName(String fullName) {
@@ -37,11 +37,11 @@ import java.util.Collection;
 
     public Collection&lt;Patient&gt; readPatientList() {
 
-<span class="nc" id="L40">        logger.debug(&quot;[SERVICE] read PatientList&quot;);</span>
-<span class="nc" id="L41">        Collection&lt;Patient&gt; patientList = patientRepository.findAll();</span>
-<span class="nc" id="L42">        logger.debug(&quot;[SERVICE] PatientList result=&quot; + patientList);</span>
+<span class="fc" id="L40">        logger.debug(&quot;[SERVICE] read PatientList&quot;);</span>
+<span class="fc" id="L41">        Collection&lt;Patient&gt; patientList = patientRepository.findAll();</span>
+<span class="fc" id="L42">        logger.debug(&quot;[SERVICE] PatientList result=&quot; + patientList);</span>
 
-<span class="nc" id="L44">        return patientList;</span>
+<span class="fc" id="L44">        return patientList;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
