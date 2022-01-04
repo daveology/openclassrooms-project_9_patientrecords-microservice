@@ -12,7 +12,7 @@ import java.time.LocalDate;
 import java.util.Collection;
 
 @RestController
-<span class="nc" id="L15">public class PatientController {</span>
+<span class="fc" id="L15">public class PatientController {</span>
 
     @Autowired
     private PatientCreationService patientCreationService;
@@ -26,19 +26,19 @@ import java.util.Collection;
     @PostMapping(&quot;/patient/add&quot;)
     public Patient addPatient(@RequestBody Patient patient) {
 
-<span class="nc" id="L29">        return patientCreationService.createPatient(patient);</span>
+<span class="fc" id="L29">        return patientCreationService.createPatient(patient);</span>
     }
 
     @PostMapping(&quot;/patientList/add&quot;)
     public Collection&lt;Patient&gt; addPatientList(@RequestBody Collection&lt;Patient&gt; patientList) {
 
-<span class="nc" id="L35">        return patientCreationService.createPatientList(patientList);</span>
+<span class="fc" id="L35">        return patientCreationService.createPatientList(patientList);</span>
     }
 
     @GetMapping(&quot;/patient/{patientId}&quot;)
     public Patient readPatientById(@PathVariable Long patientId) {
 
-<span class="nc" id="L41">        return patientReadService.readPatientById(patientId);</span>
+<span class="fc" id="L41">        return patientReadService.readPatientById(patientId);</span>
     }
 
     @GetMapping(&quot;/getPatientByName/{fullName}&quot;)
@@ -50,26 +50,26 @@ import java.util.Collection;
     @GetMapping(&quot;/patientList&quot;)
     public Collection&lt;Patient&gt; readPatientList() {
 
-<span class="nc" id="L53">        return patientReadService.readPatientList();</span>
+<span class="fc" id="L53">        return patientReadService.readPatientList();</span>
     }
 
     @PostMapping(&quot;/patient/update&quot;)
     public Patient updatePatient(@RequestBody Patient patient) {
 
-<span class="nc" id="L59">        return patientUpdateService.updatePatient(patient);</span>
+<span class="fc" id="L59">        return patientUpdateService.updatePatient(patient);</span>
     }
 
     @DeleteMapping(&quot;/patient/{patientId}&quot;)
     public void deletePatientById(@PathVariable Long patientId) {
 
-<span class="nc" id="L65">        patientDeletionService.deletePatientById(patientId);</span>
-<span class="nc" id="L66">    }</span>
+<span class="fc" id="L65">        patientDeletionService.deletePatientById(patientId);</span>
+<span class="fc" id="L66">    }</span>
 
     @DeleteMapping(&quot;/patientList&quot;)
     public void deletePatientList() {
 
-<span class="nc" id="L71">        patientDeletionService.deletePatientList();</span>
-<span class="nc" id="L72">    }</span>
+<span class="fc" id="L71">        patientDeletionService.deletePatientList();</span>
+<span class="fc" id="L72">    }</span>
 
     @PostMapping(&quot;/addPatient&quot;)
     public Patient addPatientDirectly(@RequestBody Patient patient) {
