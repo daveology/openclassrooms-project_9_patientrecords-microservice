@@ -4,9 +4,9 @@
 <br />
 <div align="center">
     <img src="src/main/resources/static/logo.png" alt="logo" height="64" />
-    <h3 align="center">Mediscreen App<i></i></h3>
+    <h3 align="center">Patient Microservice<i></i></h3>
     <p align="center">
-        We are a solution for you!
+        <i>Used in</i> <b><a href="https://github.com/s2680854/openclassrooms_9th-project_note-microservice">Mediscreen App</a></b>
         <br />
         <br />
         <a href="#summary"><strong>↓ Explore the docs ↓</strong></a>
@@ -41,6 +41,8 @@
 <div align="center">
     <img src="src/main/resources/static/intro.PNG" alt="header" />
 </div>
+
+### Please visit the main repository of Mediscreen App: [> Click Here](https://github.com/s2680854/openclassrooms_9th-project_note-microservice)
 
 <!-- ACKNOWLEDGEMENTS -->
 ## 📝 Acknowledgements
